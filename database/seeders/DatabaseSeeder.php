@@ -64,6 +64,7 @@ class DatabaseSeeder extends Seeder
 
         Trader::factory(8)->create();
         
+        
         // clear existing asset chache data
         Cache::clear();
     }
