@@ -9,7 +9,7 @@
                     Get started
                 </x-mary-button>
                 <x-mary-button link="{{ route('login') }}" class="btn-primary btn-outline btn-sm">
-                    Speak to Sales
+                    Login
                 </x-mary-button> 
             </div>
             <div class="lg:mt-0 lg:col-span-5 lg:flex order-1 lg:order-2" data-aos="fade-left" data-aos-duration="3000" data-aos-delay="1000">
