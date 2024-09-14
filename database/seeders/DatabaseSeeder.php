@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin User',
             'email' => config('mail.from.address'),
             'is_admin' => true,
-        ])->firstOrCreate();
+        ])->save();
         
         // Add all supported crypto wallet
         foreach(config('money.currencies') as $code => $currency){
