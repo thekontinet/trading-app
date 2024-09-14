@@ -13,7 +13,7 @@ class Asset extends Model
     public $guarded = [];
 
     public function getImageUrlAttribute(){
-        return app(CryptoService::class)->coinImage($this->name);
+        return $this->type === 'forex' ? null : $this->logo_path;
     }
 
     public function getPriceAttribute(){

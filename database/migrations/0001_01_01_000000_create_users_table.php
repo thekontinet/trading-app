@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('currency')->default('USD');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_admin');
+            $table->boolean('blocked')->default(false);
+            $table->boolean('restricted')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

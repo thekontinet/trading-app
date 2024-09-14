@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    function __invoke()
+    function __invoke(Request $request)
     {
         $user = User::query()->find(auth()->id());
         return view("dashboard", [
             "user" => $user,
-            'assets' => Asset::query()->paginate()
+            'assets' => Asset::query()->where('type', $request->query('type', 'crypto'))->paginate()
         ]);
     }
 }

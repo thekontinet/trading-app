@@ -31,8 +31,13 @@ class Wallet extends \Bavix\Wallet\Models\Wallet
         ];
     }
 
+    public function getTitleAttribute()
+    {
+        return $this->name . ' ' . money($this->balance, $this->currency);
+    }
+
     public function asset(): BelongsTo
     {
-        return $this->belongsTo(Asset::class, 'name', 'name');
+        return $this->belongsTo(Asset::class, 'slug', 'symbol');
     }
 }

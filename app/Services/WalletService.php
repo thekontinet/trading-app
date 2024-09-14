@@ -3,6 +3,7 @@ namespace App\Services;
 use App\Models\Transaction;
 use App\Models\Wallet;
 use Bavix\Wallet\Exceptions\BalanceIsEmpty;
+use Bavix\Wallet\Exceptions\InsufficientFunds;
 use Bavix\Wallet\Internal\Exceptions\TransactionFailedException;
 
 class WalletService
@@ -10,17 +11,17 @@ class WalletService
     public function __construct(
         private CryptoService $cryptoService,
     ){}
-    public function deposit(Wallet $wallet, int | float $amount, bool $confirmed = true) : ?Transaction
+    public function deposit(Wallet $wallet, int | float $amount, bool $confirmed = true, ?array $meta = null) : Transaction
     {
         if ($amount <= 0) {
             throw new TransactionFailedException('You can only swap crypto');
         }
 
         $convertedAmount = (double) $amount * config("money.currencies.{$wallet->currency}.subunit");
-        return $wallet->deposit((string) $convertedAmount, null, $confirmed);
+        return $wallet->deposit((string) $convertedAmount, $meta, $confirmed);
     }
 
-    public function withdraw(Wallet $wallet, int | float $amount, bool $confirmed = true) : ?Transaction
+    public function withdraw(Wallet $wallet, int | float $amount, bool $confirmed = true, ?array $meta = null) : Transaction
     {
         try{
             if ($amount <= 0) {
@@ -28,9 +29,10 @@ class WalletService
             }
     
             $convertedAmount = $amount * config("money.currencies.{$wallet->currency}.subunit");
-            return $wallet->withdraw((int) $convertedAmount, null, $confirmed);
-        }catch(BalanceIsEmpty){
-            throw new TransactionFailedException('wallet balance is empty');
+            return $wallet->withdraw((int) $convertedAmount, $meta, $confirmed);
+        }catch(BalanceIsEmpty | InsufficientFunds){
+            $walletName = strtoupper($wallet->name);
+            throw new TransactionFailedException("Not enough {$walletName} balance to perform this transaction");
         }
     }
 
@@ -48,10 +50,10 @@ class WalletService
         return  $this->deposit($reciver, $convertedAmount);
     }
 
-public function swapCoin(Wallet $sender, Wallet $receiver, int | float $amount) : ?Transaction
+public function swapCoin(Wallet $sender, Wallet $receiver, int | float $amount) : Transaction
 {
     if (!$this->walletIsCrypto($receiver) || !$this->sameWalletType($sender, $receiver)) {
-        return throw new TransactionFailedException('You can only swap crypto currencies');
+        throw new TransactionFailedException('You can only swap crypto currencies');
     }
 
     // Convert the amount to the receiver's currency equivalent if needed

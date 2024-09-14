@@ -1959,5 +1959,9 @@ return [
             'thousands_separator' => ',',
         ],
     ],
-
+    'supported_currencies' => [
+        'EUR'=> 'EUR',
+        'USD'=> 'USD',
+        'JPY'=> 'YEN',
+    ]
 ];
