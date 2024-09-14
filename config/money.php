@@ -1963,5 +1963,6 @@ return [
         'EUR'=> 'EUR',
         'USD'=> 'USD',
         'JPY'=> 'YEN',
+        'BRL'=> 'BRL',
     ]
 ];

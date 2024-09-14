@@ -272,12 +272,12 @@ namespace App\Models{
  * @property string $currency
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property mixed $password
+ * @property bool $is_admin
  * @property bool $blocked
  * @property bool $restricted
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property bool $is_admin
  * @property-read \App\Models\non-empty-string $balance
  * @property-read int $balance_int
  * @property-read \App\Models\Wallet $wallet
