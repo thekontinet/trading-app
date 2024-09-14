@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->make([
             'name' => 'Admin User',
-            'email' => 'admin@example.com',
+            'email' => config('mail.from.address'),
             'is_admin' => true,
         ])->firstOrCreate();
         
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
 
         Trader::factory(8)->create();
         
-        
+
         // clear existing asset chache data
         Cache::clear();
     }
