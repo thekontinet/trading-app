@@ -10,9 +10,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransferController;
 use App\Http\Controllers\WithdrawController;
 use App\Http\Middleware\UserWalletSync;
-use App\Models\Page;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', PageController::class);
 Route::get('page/{slug}', PageController::class)->name('pages');
