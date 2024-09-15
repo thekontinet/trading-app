@@ -140,7 +140,7 @@
             <!-- Smartsupp Live Chat script -->
             <script type="text/javascript">
                 var _smartsupp = _smartsupp || {};
-                _smartsupp.key = {{ env('SMARTAPP_KEY') }};
+                _smartsupp.key = {{ json_encode(env('SMARTAPP_KEY')) }};
                 window.smartsupp||(function(d) {
                 var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
                 s=d.getElementsByTagName('script')[0];c=d.createElement('script');
