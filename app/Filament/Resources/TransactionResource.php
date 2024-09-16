@@ -39,7 +39,7 @@ class TransactionResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('payable.name')
                     ->label('Account')
-                    ->description(fn($record) => $record->payable->email)
+                    ->description(fn($record) => $record->payable?->email)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('wallet.currency')
                     ->label('Currency')
@@ -47,7 +47,7 @@ class TransactionResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('type'),
                 Tables\Columns\TextColumn::make('amount')
-                    ->formatStateUsing(fn($record) => money($record->amount, $record->wallet->currency))
+                    ->formatStateUsing(fn($record) => money($record->amount, $record->wallet?->currency))
                     ->sortable(),
                 Tables\Columns\IconColumn::make('confirmed')
                     ->boolean(),

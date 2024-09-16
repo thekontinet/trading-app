@@ -33,6 +33,7 @@
             </main>
         </div>
         @vite(['resources/js/app.js'])
+        <x-livechat/>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/robsontenorio/mary@0.44.2/libs/currency/currency.js"></script>
     </body>
 </html>
