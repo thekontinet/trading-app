@@ -1,1 +1,1 @@
-<a href="/" class="font-bold text-lg">{{ config('app.name') }}</a>
+<a href="/" {{ $attributes }}>{{ config('app.name') }}</a>

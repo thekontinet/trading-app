@@ -26,11 +26,9 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="flex items-center">
                     @include('layouts.left-drawer')
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
-                    </a>
+                    <x-application-logo class="block w-auto fill-current text-gray-800 dark:text-gray-200 font-bold text-lg whitespace-nowrap bg-blue-900 text-slate-200 px-4 py-1 rounded-md" />
                 </div>
 
                 <!-- Navigation Links -->
@@ -43,17 +41,10 @@
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <!-- Logout and theme toggler -->
+            <div class="flex sm:items-center sm:ms-6">
                 <button @click="$store.darkMode.toggle()" class="px-4"><x-mary-icon name="o-moon" class="w-6 h-6"/></button>
                 <button form="logout-form"><x-mary-icon name="o-power" class="w-6 h-6"/></button>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
-                    <img class="w-8" src="https://img.icons8.com/ios-glyphs/30/shutdown--v1.png" alt="power-off-button"/>
-                </button>
             </div>
         </div>
     </div>
