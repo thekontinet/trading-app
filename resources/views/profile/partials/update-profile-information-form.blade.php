@@ -18,6 +18,33 @@
         @method('patch')
 
         <div>
+            <div class="inline-flex flex-col items-center" x-data="{imageUrl: @js($user->image_path), changed: false, file: null, uploading: false, status: null}">
+                <label for="upload-input">
+                    @if($user->image_path)
+                        <img class="w-24 h-24 rounded-full object-cover border-2 border-primary" x-bind:src="imageUrl" alt="profile image" />
+                    @else
+                        <span class="w-24 h-24 flex justify-center items-center rounded-full object-cover border-2 border-primary">
+                            <x-mary-icon name="o-camera" />
+                        </span>
+                    @endif
+                </label>
+                <input type="file" name="image" id="upload-input" class="hidden" 
+                       @change="file = $event.target.files[0]; imageUrl = URL.createObjectURL(file); changed = true" 
+                       x-ref="fileInput"/>
+                <x-mary-button x-bind:disable="status" class="btn btn-sm mt-2" x-show="changed" 
+                               @click="let formData = new FormData(); 
+                                        status = 'Uploading...'
+                                        formData.append('image', file); 
+                                        window.axios.post('/profile/image/upload', formData, {
+                                            headers: {'Content-Type': 'multipart/form-data'}
+                                        }).then(() => {status = 'completed ✔'; setTimeout(() => {status=null; changed = false; $refs.fileInput.value = ''}, 2000) })">
+                    <span x-show="!status">Save</span>
+                    <span x-show="status" x-text="status">Uploading...</span>
+                </x-mary-button>
+            </div>
+        </div>
+
+        <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />

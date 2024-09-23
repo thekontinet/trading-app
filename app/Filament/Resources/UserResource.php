@@ -27,6 +27,11 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\FileUpload::make('image_path')
+                    ->label('Profile Image')
+                    ->disk('public')
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),
@@ -37,6 +42,13 @@ class UserResource extends Resource
 
                 Forms\Components\Select::make('currency')
                     ->options(config('money.supported_currencies'))
+                    ->required(),
+
+                Forms\Components\TextInput::make('signal_strength')
+                    ->numeric()
+                    ->minValue(0)
+                    ->maxValue(100)
+                    ->hiddenOn('create')
                     ->required(),
                 
                 Forms\Components\TextInput::make('password')

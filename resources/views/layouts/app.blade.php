@@ -20,17 +20,23 @@
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow dark:bg-gray-800">
+                {{-- <header class="bg-white shadow dark:bg-gray-800">
                     <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
-                </header>
+                </header> --}}
             @endisset
 
             <!-- Page Content -->
             <main>
                 {{ $slot }}
             </main>
+
+            <footer class="h-24 lg:hidden">
+                <div class="fixed bottom-0 min-h-24 bg-base-200 z-40 inset-x-0">
+                    @include('layouts.bottom-nav')
+                </div>
+            </footer>
         </div>
         @vite(['resources/js/app.js'])
         <x-livechat/>

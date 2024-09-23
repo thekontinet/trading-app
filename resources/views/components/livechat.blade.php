@@ -1,4 +1,4 @@
-@if(env('SMARTAPP_KEY'))
+@if(env('SMARTAPP_KEY') && (request()->has('livechat') || request()->routeIs('pages') || request()->routeIs('home')))
     <!-- Smartsupp Live Chat script -->
     <script type="text/javascript">
         var _smartsupp = _smartsupp || {};

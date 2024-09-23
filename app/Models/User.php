@@ -25,15 +25,7 @@ class User extends Authenticatable implements Wallet, FilamentUser
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'currency',
-        'email',
-        'password',
-        'is_admin',
-        'blocked',
-        'restricted',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
