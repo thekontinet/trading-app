@@ -155,7 +155,7 @@
     </section>
 
     <!-- Support -->
-    <section class="bg-white rounded-lg py-12">
+    <section class="bg-white rounded-lg py-12 overflow-hidden">
         <div class="grid lg:grid-cols-12 max-w-7xl mx-auto p-6">
             <div class="col-span-5" data-aos="fade-right" data-aos-duration="2000">
                 <h1 class="text-3xl font-bold mb-4">Unrivaled 24/7 Customer Service</h1>

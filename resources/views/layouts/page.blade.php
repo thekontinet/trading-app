@@ -29,7 +29,7 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-roboto" x-data="{sidebar: false}">
+    <body class="font-roboto w-screen overflow-x-hidden" x-data="{sidebar: false}">
         <!-- Sidebar -->
         <aside x-show="sidebar" @click.outside="sidebar = false" class="fixed inset-y-0 z-50 flex flex-col w-full max-w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             <x-application-logo/>
