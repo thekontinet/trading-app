@@ -10,6 +10,7 @@ class TransactionController extends Controller
 {
     public function index(Request $request){
         $transactions = Transaction::query()
+            ->whereIn('wallet_id', $request->user()->wallets->pluck('id'))
             ->when($request->query('type'), function(Builder $query) use ($request){
                 return $query->where('type', $request->query('type'));
             })
