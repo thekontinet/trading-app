@@ -62,11 +62,4 @@ class User extends Authenticatable implements Wallet, FilamentUser
     {
         return $this->is_admin;
     }
-
-    public static function booted()
-    {
-        static::creating(function($user){
-            $user->is_admin = false;
-        });
-    }
 }
