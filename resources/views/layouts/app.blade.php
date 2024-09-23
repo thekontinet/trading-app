@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css'])
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased hidden"  x-bind:data-theme="$store.darkMode.on ? 'dark' : 'light'">
         <div class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
             @include('layouts.navigation')
 

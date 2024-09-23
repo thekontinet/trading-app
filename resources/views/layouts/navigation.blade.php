@@ -20,7 +20,7 @@
 @endphp
 
 
-<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-white dark:bg-inherit border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -45,7 +45,8 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <button form="logout-form"><img class="w-8" src="https://img.icons8.com/ios-glyphs/30/shutdown--v1.png" alt="power-off-button"/></button>
+                <button @click="$store.darkMode.toggle()" class="px-4"><x-mary-icon name="o-moon" class="w-6 h-6"/></button>
+                <button form="logout-form"><x-mary-icon name="o-power" class="w-6 h-6"/></button>
             </div>
 
             <!-- Hamburger -->

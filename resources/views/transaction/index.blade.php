@@ -6,7 +6,7 @@
     </x-slot>
 
     <section class="py-12 max-w-6xl mx-auto">
-        <div class="bg-white p-4 rounded-md">
+        <div class="bg-white dark:bg-base-300 p-4 rounded-md">
             @foreach ($transactions  as $transaction)
                 <x-mary-list-item :item="$transaction" value="id" :link="route('transactions.show', $transaction)">
                     <x-slot:avatar>
