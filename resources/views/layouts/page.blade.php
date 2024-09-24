@@ -127,7 +127,7 @@
                             <h3 class="font-semibold text-gray-800 mb-2">Resource</h3>
                             <ul class="text-sm text-gray-600 space-y-1">
                                 <li><a href="{{ route('pages', 'cookie-policy') }}" class="hover:text-blue-500">Cookie Policy</a></li>
-                                <li><a href="{{ route('pages', 'provacy-policy') }}" class="hover:text-blue-500">Privacy Policy</a></li>
+                                <li><a href="{{ route('pages', 'privacy-policy') }}" class="hover:text-blue-500">Privacy Policy</a></li>
                                 <li><a href="{{ route('pages', 'terms-of-service') }}" class="hover:text-blue-500">Terms Of Service</a></li>
                             </ul>
                         </div>

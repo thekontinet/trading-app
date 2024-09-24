@@ -12,8 +12,9 @@
                     Login
                 </x-mary-button> 
             </div>
-            <div class="lg:mt-0 lg:col-span-5 lg:flex order-1 lg:order-2" data-aos="fade-left" data-aos-duration="3000" data-aos-delay="1000">
+            <div class="lg:mt-0 lg:col-span-5 lg:flex order-1 lg:order-2 relative" data-aos="fade-left" data-aos-duration="3000" data-aos-delay="1000">
                 <video class="w-full" src="https://standardmarkets.net/1videos/laptop.mp4" muted autoplay loop></video>
+                <div class="absolute inset-0 select-none"></div>
             </div>                
         </div>
     </section>
@@ -79,8 +80,9 @@
                 </ul>
             </div>
 
-            <div class="lg:col-span-7">
+            <div class="lg:col-span-7 relative">
                 <video class="max-w-xl w-full" src="https://standardmarkets.net/1videos/flowchart.mp4" muted autoplay loop></video>
+                <div class="absolute inset-4 select-none"></div>
             </div>
         </div>
     </section>

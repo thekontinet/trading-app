@@ -1,9 +1,43 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}" class="text-slate-400">
+    <form method="POST" action="{{ route('register') }}" class="text-slate-400 grid grid-cols-2 space-y-6 gap-x-4">
         @csrf
 
-        <!-- Name -->
         <div>
+            <x-mary-select
+                label="Account Type"
+                name="account_type"
+                wire:model="account_type"
+                :value="old('account_type')"
+                :options="$accountTypes"
+                required
+                autofocus />
+            <x-input-error :messages="$errors->get('account_type')" class="mt-2" />
+        </div>
+
+        <div>
+            <x-mary-select
+                label="Currency"
+                name="currency"
+                wire:model="currency"
+                :value="old('currency')"
+                :options="$currencies"
+                required />
+            <x-input-error :messages="$errors->get('currency')" class="mt-2" />
+        </div>
+
+        <div class="col-span-full">
+            <x-mary-select
+                label="Country"
+                name="country"
+                wire:model="country"
+                :value="old('country')"
+                :options="$countries"
+                required />
+            <x-input-error :messages="$errors->get('country')" class="mt-2" />
+        </div>
+
+        <!-- Name -->
+        <div class="col-span-full">
             <x-mary-input
                 label="Name"
                 type="text"
@@ -17,7 +51,7 @@
         </div>
 
         <!-- Email Address -->
-        <div class="mt-4">
+        <div class="col-span-full">
             <x-mary-input
                 label="Email"
                 type="email"
@@ -29,7 +63,7 @@
         </div>
 
         <!-- Password -->
-        <div class="mt-4">
+        <div>
             <x-mary-input
                 :label="__('Password')"
                 type="password"
@@ -42,7 +76,7 @@
         </div>
 
         <!-- Confirm Password -->
-        <div class="mt-4">
+        <div>
             <x-mary-input
                 :label="__('Confirm Password')"
                 type="password"
@@ -54,7 +88,15 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="mt-6">
+        <div class="col-span-full">
+            <x-mary-checkbox name='agree' wire:model="agree">
+                <x-slot name="label">
+                    <a href="{{ route('pages', 'terms-of-service') }}">Agree to our terms of service</a>
+                </x-slot>
+            </x-mary-checkbox>
+        </div>
+
+        <div class="col-span-full">
             <x-mary-button type="submit" class="w-full btn-primary">
                 {{ __('Create Account') }}
             </x-mary-button>

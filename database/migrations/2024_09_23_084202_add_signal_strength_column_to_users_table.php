@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->integer('signal_strength')->default(0);
             $table->string('image_path')->nullable();
+            $table->string('country')->nullable();
+            $table->string('account_type')->nullable();
         });
     }
 
@@ -25,6 +27,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('signal_strength');
             $table->dropColumn('image_path');
+            $table->dropColumn(columns: 'country');
+            $table->dropColumn('account_type');
         });
     }
 };

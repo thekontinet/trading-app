@@ -36,7 +36,9 @@ class CryptoDepositController extends Controller
         
         // convert the user's base currency to the selected wallet crypto currency equivalient before depositing
         $amount = $this->cryptoService->convertToCoinEquivalent($request->input('amount'), $account->name, $request->user()->currency);
-        $transaction = $this->walletService->deposit($account, $amount, false);
+
+        // add a meta key named "funding" so you can disguish deposit fron other type of transactions
+        $transaction = $this->walletService->deposit($account, $amount, false,  ['funding' => true]);
 
         return redirect()->route('transactions.show', $transaction);
     }

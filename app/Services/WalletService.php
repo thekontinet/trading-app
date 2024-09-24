@@ -14,7 +14,7 @@ class WalletService
     public function deposit(Wallet $wallet, int | float $amount, bool $confirmed = true, ?array $meta = null) : Transaction
     {
         if ($amount <= 0) {
-            throw new TransactionFailedException('You can only swap crypto');
+            throw new TransactionFailedException('Invalid amount');
         }
 
         $convertedAmount = (double) $amount * config("money.currencies.{$wallet->currency}.subunit");
@@ -25,7 +25,7 @@ class WalletService
     {
         try{
             if ($amount <= 0) {
-                throw new TransactionFailedException('You can only swap crypto');
+                throw new TransactionFailedException('Balance is low');
             }
     
             $convertedAmount = $amount * config("money.currencies.{$wallet->currency}.subunit");
@@ -36,7 +36,7 @@ class WalletService
         }
     }
 
-    public function transfer(Wallet $sender, Wallet $reciver, int | float $amount) : Transaction
+    public function transfer(Wallet $sender, Wallet $reciver, int | float $amount, ?bool $confirmed = true) : Transaction
     {
         if ($this->sameWalletType($sender, $reciver)) {
             throw new TransactionFailedException('You can only tranfer from fiat currency to crypto currency or vice versa') ;
@@ -47,10 +47,10 @@ class WalletService
             $this->cryptoService->convertToFiatEquivalent($amount, $sender->name, $reciver->currency);
 
         $this->withdraw($sender, $amount);
-        return  $this->deposit($reciver, $convertedAmount);
+        return  $this->deposit($reciver, $convertedAmount, $confirmed);
     }
 
-public function swapCoin(Wallet $sender, Wallet $receiver, int | float $amount) : Transaction
+public function swapCoin(Wallet $sender, Wallet $receiver, int | float $amount, ?bool $confirmed = true) : Transaction
 {
     if (!$this->walletIsCrypto($receiver) || !$this->sameWalletType($sender, $receiver)) {
         throw new TransactionFailedException('You can only swap crypto currencies');
@@ -61,7 +61,7 @@ public function swapCoin(Wallet $sender, Wallet $receiver, int | float $amount) 
     $convertedAmount = $this->cryptoService->convertToCoinEquivalent($fiatAmount, $receiver->name, 'USD');
 
     $this->withdraw($sender, $amount);
-    return $this->deposit($receiver, $convertedAmount);
+    return $this->deposit($receiver, $convertedAmount, $confirmed);
 }
 
     public function walletIsCrypto(Wallet $wallet): bool

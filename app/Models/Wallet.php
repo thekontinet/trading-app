@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Models;
+use Bavix\Wallet\Traits\HasWalletFloat;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
 class Wallet extends \Bavix\Wallet\Models\Wallet 
 {
-    
     protected $fillable = [
         'holder_type',
         'holder_id',

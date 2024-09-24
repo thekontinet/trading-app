@@ -23,7 +23,7 @@
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <x-mary-button type="submit" class="btn-secondary">
+            <x-mary-button type="submit" class="btn-primary btn-outline">
                 {{ __('Log Out') }}
             </x-mary-button>
         </form>

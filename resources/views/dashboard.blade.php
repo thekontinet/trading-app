@@ -15,7 +15,7 @@
 
     <div class="py-4 lg:py-12">
         <div class="grid gap-4 mx-auto max-w-7xl px-2 lg:px-8">
-            <div class="border border-primary dark:border-indigo-950 bg-cover bg-center text-white text-center" :title="" subtitle="Trading Balance" style="background-image: url('/images/dashboard-wallet-card.png')">
+            <div class="border border-primary dark:border-indigo-950 bg-cover bg-center text-white text-center" style="background-image: url('/images/dashboard-wallet-card.png')">
                 <div class="bg-[#10032ae0] py-8 px-6">
                     <h2 class="text-2xl">{{ money($user->balance, $user->currency) }}</h2>
                     <h3>Trading Balance</h3>
