@@ -25,7 +25,7 @@
                         </span>
                     @endif
                     <h2 class="text-lg mt-4">{{ auth()->user()->name }}</h2>
-                    <p class="text-sm">{{ auth()->user()->type ?? 'Live Account' }}</p>
+                    <p class="text-sm">{{ auth()->user()->account_type ?? 'Live' }} Account</p>
                 </div>
             </li>
 
