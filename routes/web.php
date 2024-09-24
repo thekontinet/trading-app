@@ -28,9 +28,9 @@ Route::middleware(['auth',  UserWalletSync::class])->group(function () {
     Route::resource('upgrade', SubscriptionController::class)->only('index', 'store');
     Route::resource('copy-trades', CopyTradingController::class)->only('index', 'store', 'show', 'destroy');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/account', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/account', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/account', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/profile/image/upload', ProfileImageUploadController::class)->name('profile.destroy');
 });
 
