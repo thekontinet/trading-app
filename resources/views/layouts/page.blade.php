@@ -17,7 +17,7 @@
 @endphp
 
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="mytheme">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,8 +28,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <style>
+            .skiptranslate{display: none}
+        </style>
     </head>
-    <body class="font-roboto w-screen overflow-x-hidden" x-data="{sidebar: false}">
+    <body class="font-roboto w-screen overflow-x-hidden" x-data="{sidebar: false}"  x-bind:data-theme="$store.darkMode.on ? 'dark' : 'mytheme'">
         <!-- Sidebar -->
         <aside x-show="sidebar" @click.outside="sidebar = false" class="fixed inset-y-0 z-50 flex flex-col w-full max-w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             <x-application-logo/>
@@ -50,7 +54,7 @@
         </aside>
 
         <!-- Header -->
-        <header class="bg-white border-b border-gray-200">
+        <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:text-slate-200 dark:bg-slate-900">
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center h-16">
                     <!-- Logo and Menu Button -->
@@ -65,27 +69,16 @@
 
                     <!-- Navigation Links -->
                     <nav class="hidden md:flex space-x-8">
-                        <a href="/" class="text-gray-600 hover:text-gray-800">Home</a>
-                        <a href="{{ route('pages', 'about') }}" class="text-gray-600 hover:text-gray-800">About Us</a>
-                        <a href="{{ route('pages', 'contact') }}" class="text-gray-600 hover:text-gray-800">Contact Us</a>
-                        <a href="{{ route('pages', 'faq') }}" class="text-gray-600 hover:text-gray-800">Faq</a>
+                        <a href="/" class="text-gray-600 dark:text-inherit hover:text-gray-800">Home</a>
+                        <a href="{{ route('pages', 'about') }}" class="text-gray-600 dark:text-inherit hover:text-gray-800">About Us</a>
+                        <a href="{{ route('pages', 'contact') }}" class="text-gray-600 dark:text-inherit hover:text-gray-800">Contact Us</a>
+                        <a href="{{ route('pages', 'faq') }}" class="text-gray-600 dark:text-inherit hover:text-gray-800">Faq</a>
                     </nav>
 
                     <!-- Right Side Icons -->
                     <div class="flex items-center space-x-4">
-                        <!-- Dark Mode Toggle -->
-                        {{-- <button class="text-gray-500 hover:text-gray-600 focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                            </svg>
-                        </button> --}}
-                        <!-- Language Selector -->
-                        {{-- <div class="relative">
-                            <button class="flex items-center text-gray-600 hover:text-gray-800 focus:outline-none">
-                                <img src="{{ asset('path/to/us-flag.png') }}" alt="US Flag" class="h-4 w-6 mr-1">
-                                <span>EN</span>
-                            </button>
-                        </div> --}}
+                        <x-theme-button/>
+                        <x-translate-button/>
                     </div>
                 </div>
             </div>
@@ -96,7 +89,7 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-white border-t border-gray-200 py-4">
+        <footer class="bg-white dark:bg-slate-900 border-t border-gray-200 py-4">
             <div class="container mx-auto px-4 text-center">
                 <div class="flex flex-col md:flex-row justify-between items-center">
                     <div class="md:flex items-center gap-4 mb-4 md:mb-0">
@@ -137,5 +130,21 @@
         </footer>
         
         <x-livechat/>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+            }
+
+            function translatePage(event) {
+                const language = event.target.value;
+                const translateElement = document.querySelector('.goog-te-combo');
+                
+                if (translateElement) {
+                    translateElement.value = language;
+                    translateElement.dispatchEvent(new Event('change'));
+                }
+            }
+        </script>
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
     </body>
 </html>

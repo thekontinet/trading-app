@@ -43,7 +43,7 @@
 
             <!-- Logout and theme toggler -->
             <div class="flex sm:items-center sm:ms-6">
-                <button @click="$store.darkMode.toggle()" class="px-4"><x-mary-icon name="o-moon" class="w-6 h-6"/></button>
+                <x-theme-button/>
                 <button form="logout-form"><x-mary-icon name="o-power" class="w-6 h-6"/></button>
             </div>
         </div>

@@ -13,14 +13,15 @@
                 </x-mary-button> 
             </div>
             <div class="lg:mt-0 lg:col-span-5 lg:flex order-1 lg:order-2 relative" data-aos="fade-left" data-aos-duration="3000" data-aos-delay="1000">
-                <video class="w-full" src="https://standardmarkets.net/1videos/laptop.mp4" muted autoplay loop></video>
+                <video class="w-full dark:hidden" src="/videos/laptop.mp4" preload="none" muted autoplay loop></video>
+                <img class="w-full hidden dark:block" src="/images/BBLaptopDark.svg" alt="banner" loading="lazy"/>
                 <div class="absolute inset-0 select-none"></div>
             </div>                
         </div>
     </section>
 
     <!-- Features -->
-    <section class="bg-primary text-white">
+    <section class="bg-primary dark:bg-indigo-900 text-white">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div class="max-w-screen-md mb-8 lg:mb-16" data-aos="zoom-in" data-aos-duration="2000">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold">1 Account 200+ Products</h2>
@@ -63,7 +64,7 @@
     </section>
 
     <!-- Features -->
-    <section class="bg-white rounded-lg py-12">
+    <section class="bg-white dark:bg-gray-900 rounded-lg py-12">
         <div class="max-w-7xl mx-auto p-6 grid lg:grid-cols-12 items-center">
             <div class="lg:col-span-5">
                 <h1 class="text-3xl font-bold mb-4">Lightning speed execution with<br>razor-thin spreads</h1>
@@ -81,7 +82,8 @@
             </div>
 
             <div class="lg:col-span-7 relative">
-                <video class="max-w-xl w-full" src="https://standardmarkets.net/1videos/flowchart.mp4" muted autoplay loop></video>
+                <video class="max-w-xl w-full dark:hidden" src="/videos/flowchart.mp4" muted autoplay loop></video>
+                <img class="w-full hidden dark:block" src="/images/BBStocks.svg" alt="banner">
                 <div class="absolute inset-4 select-none"></div>
             </div>
         </div>
@@ -89,7 +91,7 @@
 
     
     <!-- TradingView Widget BEGIN -->
-    <section class="tradingview-widget-container bg-white px-8">
+    <section class="tradingview-widget-container bg-white dark:bg-gray-900 px-8">
         <div class="tradingview-widget-container__widget max-w-7xl mx-auto"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
             {
@@ -116,19 +118,19 @@
                 }
             ],
             "showSymbolLogo": true,
-            "isTransparent": false,
+            "isTransparent": true,
             "displayMode": "adaptive",
-            "colorTheme": "light",
+            "colorTheme": "dark",
             "locale": "en"
         }
         </script>
     </section>
     <!-- TradingView Widget END -->
 
-    <section class="p-6 bg-white rounded-lg py-12">
+    <section class="p-6 bg-white dark:bg-gray-900 rounded-lg py-12">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-12 items-center">
             <div class="col-span-7 order-2 md:order-1" data-aos="fade-right" data-aos-duration="2000">
-               <img class="max-w-lg w-full" src="https://standardmarkets.net/assets/images/svgs/BBLaptopLight.svg" alt="banner">
+               <img class="max-w-lg w-full" src="/images/BBLaptopLight.svg" alt="banner">
             </div>
 
             <div class="col-span-5 order-1 md:order-2">
@@ -139,7 +141,7 @@
     </section>
 
     <!-- Plans -->
-    <section class="bg-primary text-white">
+    <section class="bg-primary dark:bg-indigo-900 text-white">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div class="max-w-screen-md mb-8 lg:mb-16" data-aos="zoom-in" data-aos-duration="2000">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold">A Trading Account For Every Trader</h2>
@@ -157,7 +159,7 @@
     </section>
 
     <!-- Support -->
-    <section class="bg-white rounded-lg py-12 overflow-hidden">
+    <section class="bg-white dark:bg-gray-900 rounded-lg py-12 overflow-hidden">
         <div class="grid lg:grid-cols-12 max-w-7xl mx-auto p-6">
             <div class="col-span-5" data-aos="fade-right" data-aos-duration="2000">
                 <h1 class="text-3xl font-bold mb-4">Unrivaled 24/7 Customer Service</h1>
@@ -175,7 +177,7 @@
             </div>
 
             <div class="col-span-7 text-right" data-aos="fade-left" data-aos-duration="2000">
-                <img src="https://standardmarkets.net/assets/images/site/Headset.webp" alt="support" class="max-w-sm w-full block ml-auto">
+                <img src="/images/Headset.webp" alt="support" class="max-w-sm w-full block ml-auto">
             </div>
         </div>
     </section>
