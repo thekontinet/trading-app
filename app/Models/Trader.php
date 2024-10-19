@@ -18,6 +18,7 @@ class Trader extends Model
             'amount' => $amount * 100,
             'profit' => 0,
         ]);
+        $this->update(['copiers' => $this->copiers + 1]);
     }
 
     public function copiedBy(User $user)
@@ -28,5 +29,5 @@ class Trader extends Model
     public function members()
     {
         return $this->hasMany(Copier::class);
-    } 
+    }
 }

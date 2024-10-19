@@ -43,8 +43,8 @@ class CopyTradingController extends Controller
                 ->withErrors(['trader' => 'Please you need to upgrade your account'])
                 ->withInput(['trader' => $request->input('trader')]);
         }
-        
-        if($trader->copiers === $trader->max_copiers){
+
+        if($trader->copiers >= $trader->max_copiers){
             return redirect()->back()
                 ->withErrors(['trader' => 'This trader\'s space is full'])
                 ->withInput(['trader' => $request->input('trader')]);

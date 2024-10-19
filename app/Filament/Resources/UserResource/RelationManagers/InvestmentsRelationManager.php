@@ -19,9 +19,21 @@ class InvestmentsRelationManager extends RelationManager
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
+                Forms\Components\Select::make('trader_id')
+                    ->relationship('trader', 'name')
+                    ->required(),
+                Forms\Components\TextInput::make('amount')
+                    ->numeric()
+                    ->minValue(0)
+                    ->formatStateUsing(fn($state) => $state / 100)
+                    ->dehydrateStateUsing(fn($state) => $state * 100)
+                    ->required(),
+                Forms\Components\TextInput::make('profit')
+                    ->numeric()
+                    ->minValue(0)
+                    ->formatStateUsing(fn($state) => $state / 100)
+                    ->dehydrateStateUsing(fn($state) => $state * 100)
                     ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -41,7 +53,8 @@ class InvestmentsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    ->label('Create Investment'),
             ])
             ->actions([
                 Tables\Actions\Action::make('end')
@@ -51,7 +64,7 @@ class InvestmentsRelationManager extends RelationManager
                             $record->user->wallet,
                             $record->profit / 100 + $record->amount / 100
                         );
-                
+
                         $record->delete();
                     })
             ])
