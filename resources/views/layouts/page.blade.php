@@ -1,21 +1,14 @@
-@props(['pages'])
+@props(['navitems'])
 
 @php
     $navigations = [
         'home' => [
             'title' => 'Home',
             'href' => '/'
-        ]
+        ],
+        ...$navitems
     ];
-
-    foreach ($pages as $page) {
-        $navigations[$page->slug] = [
-            'title' => ucfirst($page->title),
-            'href' => route('pages', $page),
-        ];
-    }
 @endphp
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -37,15 +30,15 @@
         <!-- Sidebar -->
         <aside x-show="sidebar" @click.outside="sidebar = false" class="fixed inset-y-0 z-50 flex flex-col w-full max-w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
             <x-application-logo/>
-        
+
             <div class="flex flex-col justify-between flex-1 mt-6">
-                <nav class="flex-1 -mx-3 space-y-3 ">        
+                <nav class="flex-1 -mx-3 space-y-3 ">
                     @foreach ($navigations as $nav)
                         <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700" href="{{ $nav['href'] }}">
                             <svg class="w-4 h-4" data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z"></path>
                             </svg>
-            
+
                             <span class="mx-2 text-sm font-medium">{{ $nav['title'] }}</span>
                         </a>
                     @endforeach
@@ -128,7 +121,7 @@
                 </div>
             </div>
         </footer>
-        
+
         <x-livechat/>
         <script type="text/javascript">
             function googleTranslateElementInit() {
@@ -138,7 +131,7 @@
             function translatePage(event) {
                 const language = event.target.value;
                 const translateElement = document.querySelector('.goog-te-combo');
-                
+
                 if (translateElement) {
                     translateElement.value = language;
                     translateElement.dispatchEvent(new Event('change'));

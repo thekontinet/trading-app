@@ -1,1 +1,1 @@
-<button @click="$store.darkMode.toggle()" class="px-4"><x-mary-icon name="o-moon" class="w-6 h-6"/></button>
+<x-mary-button @click="$store.darkMode.toggle()" class="btn-circle btn-sm"><x-mary-icon name="o-moon" class="w-4 h-4"/></x-mary-button>

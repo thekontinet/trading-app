@@ -20,7 +20,7 @@
 @endphp
 
 
-<nav x-data="{ open: false }" class="bg-white dark:bg-inherit border-b border-gray-100 dark:border-gray-700">
+<nav x-data="{ open: false }" class="bg-inherit border-b border-base-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -28,7 +28,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     @include('layouts.left-drawer')
-                    <x-application-logo class="block w-auto fill-current text-gray-800 dark:text-gray-200 font-bold text-lg whitespace-nowrap bg-blue-900 text-slate-200 px-4 py-1 rounded-md" />
+                    <x-application-logo />
                 </div>
 
                 <!-- Navigation Links -->
@@ -42,9 +42,11 @@
             </div>
 
             <!-- Logout and theme toggler -->
-            <div class="flex sm:items-center sm:ms-6">
+            <div class="flex items-center sm:ms-6 gap-2">
                 <x-theme-button/>
-                <button form="logout-form"><x-mary-icon name="o-power" class="w-6 h-6"/></button>
+                <x-mary-button type="submit" form="logout-form" class="bg-danger btn-sm btn-circle">
+                    <x-mary-icon name="o-power" class="w-4 h-4"/>
+                </x-mary-button>
             </div>
         </div>
     </div>

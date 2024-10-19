@@ -30,7 +30,6 @@ class UserResource extends Resource
                 Forms\Components\FileUpload::make('image_path')
                     ->label('Profile Image')
                     ->disk('public')
-                    ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('name')
                     ->required()
@@ -50,7 +49,7 @@ class UserResource extends Resource
                     ->maxValue(100)
                     ->hiddenOn('create')
                     ->required(),
-                
+
                 Forms\Components\TextInput::make('password')
                     ->password()
                     ->required()
@@ -102,7 +101,7 @@ class UserResource extends Resource
                                 ])
                                 ->in(['deposit', 'withdraw'])
                                 ->required(),
-                            
+
                                 Forms\Components\TextInput::make('amount')
                                     ->numeric()
                                     ->prefix(function($get){

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    .dashboard-card{
+        @apply dark:border-indigo-950 bg-secondary rounded-lg bg-cover bg-center text-primary text-center
+    }
+
+   [data-theme=light] .dashboard-card,   [data-theme=dark] .dashboard-card{
+       background-image: linear-gradient(#10032ae0, #10032ae0), url('/images/dashboard-wallet-card.png');
+       @apply border border-primary dark:border-indigo-950 bg-cover bg-center text-white text-center
+   }
+}

@@ -12,7 +12,7 @@ class PageLayout extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public $pages
+        public ?array $navitems = []
     )
     {
         //

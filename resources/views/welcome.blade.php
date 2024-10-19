@@ -1,4 +1,4 @@
-<x-page-layout :pages="$pages">
+<x-page-layout :navitems="$navitems">
     <!-- Hero -->
     <section class="bg-white dark:bg-gray-900 text-gray-900">
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
@@ -10,13 +10,13 @@
                 </x-mary-button>
                 <x-mary-button link="{{ route('login') }}" class="btn-primary btn-outline btn-sm">
                     Login
-                </x-mary-button> 
+                </x-mary-button>
             </div>
             <div class="lg:mt-0 lg:col-span-5 lg:flex order-1 lg:order-2 relative" data-aos="fade-left" data-aos-duration="3000" data-aos-delay="1000">
                 <video class="w-full dark:hidden" src="/videos/laptop.mp4" preload="none" muted autoplay loop></video>
                 <img class="w-full hidden dark:block" src="/images/BBLaptopDark.svg" alt="banner" loading="lazy"/>
                 <div class="absolute inset-0 select-none"></div>
-            </div>                
+            </div>
         </div>
     </section>
 
@@ -89,7 +89,7 @@
         </div>
     </section>
 
-    
+
     <!-- TradingView Widget BEGIN -->
     <section class="tradingview-widget-container bg-white dark:bg-gray-900 px-8">
         <div class="tradingview-widget-container__widget max-w-7xl mx-auto"></div>

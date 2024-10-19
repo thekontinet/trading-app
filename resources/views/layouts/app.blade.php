@@ -14,17 +14,17 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css'])
     </head>
-    <body class="font-sans antialiased hidden" x-data  x-bind:data-theme="$store.darkMode.on ? 'dark' : 'light'">
-        <div class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
+    <body class="font-sans antialiased hidden" x-data  x-bind:data-theme="$store.darkMode.on ? '{{env('APP_THEME') ? 'mythemedark' : 'dark'}}' : '{{env('APP_THEME') ? 'mythemelight' : 'light'}}'">
+        <div class="min-h-screen font-sans antialiased bg-base-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                {{-- <header class="bg-white shadow dark:bg-gray-800">
+                <header class="bg-white shadow dark:bg-gray-800">
                     <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
-                </header> --}}
+                </header>
             @endisset
 
             <!-- Page Content -->
@@ -33,7 +33,7 @@
             </main>
 
             <footer class="h-24 lg:hidden">
-                <div class="fixed bottom-0 min-h-24 bg-base-200 z-40 inset-x-0">
+                <div class="fixed bottom-0 z-40 inset-x-0 bg-secondary">
                     @include('layouts.bottom-nav')
                 </div>
             </footer>

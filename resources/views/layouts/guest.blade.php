@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data x-bind:data-theme="$store.darkMode.on ? '{{env('APP_THEME') ? 'mythemedark' : 'dark'}}' : '{{env('APP_THEME') ? 'mythemelight' : 'light'}}'">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

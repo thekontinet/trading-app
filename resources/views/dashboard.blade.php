@@ -15,21 +15,35 @@
 
     <div class="py-4 lg:py-12">
         <div class="grid gap-4 mx-auto max-w-7xl px-2 lg:px-8">
-            <div class="border border-primary dark:border-indigo-950 bg-cover bg-center text-white text-center" style="background-image: url('/images/dashboard-wallet-card.png')">
-                <div class="bg-[#10032ae0] py-8 px-6">
-                    <h2 class="text-2xl">{{ money($user->balance, $user->currency) }}</h2>
-                    <h3>Trading Balance</h3>
-                    <div class="h-2 w-full bg-white border rounded max-w-lg mx-auto mt-14 mb-2">
-                        <div class="bg-indigo-900 rounded h-full" style="width: {{ $user->signal_strength }}%"></div>
+            <div class="dashboard-card">
+                <div class="py-4 px-6">
+                    <h2 class="text-2xl font-bold">{{ money($user->balance, $user->currency) }}</h2>
+                    <h3 class="text-sm">Trading Balance</h3>
+                    <div class="h-2 w-full bg-base-300 border rounded max-w-lg mx-auto mt-14 mb-2">
+                        <div class="bg-primary rounded h-full" style="width: {{ $user->signal_strength }}%"></div>
                     </div>
-                    <h3>Signal Strength</h3>
+                    <h3 class="text-sm">Signal Strength</h3>
                 </div>
             </div>
 
-            <div class="py-8 grid gap-4 grid-cols-3">
-                <x-mary-button class="btn-ghost btn-block btn-square btn-primary flex-col lg:flex-row" icon='o-credit-card' :link="route('deposits.create')">Deposit</x-mary-button>
-                <x-mary-button class="btn-ghost btn-block btn-square btn-primary flex-col lg:flex-row" icon='o-user-group' :link="route('copy-trades.index')">Copy Traders</x-mary-button>
-                <x-mary-button class="btn-ghost btn-block btn-square btn-primary flex-col lg:flex-row" icon='o-arrows-up-down' :link="route('transfers.create')">Transfer</x-mary-button>
+            <div class="py-2 grid gap-4 grid-cols-3">
+                <x-mary-button
+                    class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row"
+                    icon='o-credit-card'
+                    :link="route('deposits.create')"
+                >Deposit</x-mary-button>
+
+                <x-mary-button
+                    class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row"
+                    icon='o-user-group'
+                    :link="route('copy-trades.index')"
+                >Copy Traders</x-mary-button>
+
+                <x-mary-button
+                    class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row"
+                    icon='o-arrows-up-down'
+                    :link="route('transfers.create')"
+                >Transfer</x-mary-button>
             </div>
 
             <div class="flex items-center gap-4">

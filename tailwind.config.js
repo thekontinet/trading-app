@@ -21,28 +21,68 @@ export default {
     },
     daisyui: {
         themes: ["light", "dark", {
-            mytheme: {
-                "primary": "#3b82f6", 
-                "primary-content": "#e0f2fe",
-                "primary-content": "#010615",
-                "secondary": "#d1d5db",
-                "secondary-content": "#101011",
-                "accent": "#00ffff",
-                "accent-content": "#001616",
-                "neutral": "#4b5563",
-                "neutral-content": "#d8dbde",
-                "base-100": "#e5e7eb",
-                "base-200": "#c7c9cc",
-                "base-300": "#aaabae",
-                "base-content": "#121313",
-                "info": "#4338ca",
-                "info-content": "#d3d9f8",
+            mythemelight: {
+                "primary": "#FCB420",
+                "primary-content": "#000000",
+                "secondary": "#07060e",
+                "secondary-content": "#ffffff",
+                "accent": "#00b3b3",
+                "accent-content": "#ffffff",
+                "neutral": "#3d4451",
+                "neutral-content": "#ffffff",
+                "base-100": "#ffffff",
+                "base-200": "#f2f2f2",
+                "base-300": "#e5e6e6",
+                "base-content": "#1f2937",
+                "info": "#3b82f6",
+                "info-content": "#ffffff",
                 "success": "#22c55e",
-                "success-content": "#000e03",
-                "warning": "#eab308",
-                "warning-content": "#130c00",
-                "error": "#b91c1c",
-                "error-content": "#f7d5d1",
+                "success-content": "#ffffff",
+                "warning": "#f59e0b",
+                "warning-content": "#000000",
+                "error": "#ef4444",
+                "error-content": "#ffffff"
+            },
+            mythemedark: {
+                "primary": "#FCB420",
+
+                "primary-content": "#000000",
+
+                "secondary": "#1c1c19",
+
+                "secondary-content": "#ffffff",
+
+                "accent": "#00a9ff",
+
+                "accent-content": "#000a16",
+
+                "neutral": "#34272a",
+
+                "neutral-content": "#d3cfd0",
+
+                "base-100": "#2c2c26",
+
+                "base-200": "#252520",
+
+                "base-300": "#1e1e19",
+
+                "base-content": "#d0d0cf",
+
+                "info": "#007ee5",
+
+                "info-content": "#000512",
+
+                "success": "#34d257",
+
+                "success-content": "#011003",
+
+                "warning": "#ffcb00",
+
+                "warning-content": "#160f00",
+
+                "error": "#ffa0b1",
+
+                "error-content": "#16090c",
             },
         }],
     },
