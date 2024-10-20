@@ -9,27 +9,6 @@
     </x-slot>
 
     <section class="py-4 lg:py-12 max-w-7xl mx-auto lg:px-8">
-        <div style="height: 600px">
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container" style="height:100%;width:100%">
-                <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%; border-radius: 24px"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                    {
-                        "autosize": true,
-                        "symbol": "BYBIT:BTCUSDT.P",
-                        "interval": "D",
-                        "timezone": "Etc/UTC",
-                        "theme": "dark",
-                        "style": "1",
-                        "locale": "en",
-                        "allow_symbol_change": true,
-                        "calendar": false,
-                        "support_host": "https://www.tradingview.com"
-                    }
-                </script>
-            </div>
-            <!-- TradingView Widget END -->
-        </div>
         <div class="grid gap-4 lg:grid-cols-4">
             @forelse ($copies as $copy)
             <x-trader-card :trader="$copy->trader">
@@ -40,7 +19,7 @@
                     </li>
                     <li class="font-light">
                         <abbr title="Profit and Loss">Profit</abbr>
-                        <dd class="font-bold">{{ money($copy->profit, $user->currency) }}</dd>
+                        <dd class="font-bold {{ $copy->profit > 0 ? 'text-green-500' : 'text-red-500' }}">{{ money($copy->profit, $user->currency) }}</dd>
                     </li>
                 </ul>
                 <form action="{{ route('copy-trades.destroy', $copy) }}" method="post">

@@ -1,10 +1,10 @@
 @props(['trader'])
 
 <x-mary-card class="text-center">
-    <div class="h-24 w-24 mx-auto">
-        <img class="h-full w-full rounded-full" src="https://ui-avatars.com/api/?name={{ $trader->name }}&background=random"/>
+    <div class="flex items-center">
+        <img class="h-12 w-12 rounded-full" src="https://ui-avatars.com/api/?name={{ $trader->name }}&background=random"/>
+        <h4 class="mt-1 font-bold text-lg">{{ $trader->name }}</h4>
     </div>
-    <h4 class="mt-1 font-bold text-lg">{{ $trader->name }}</h4>
     <ul class="text-sm text-left grid grid-cols-2 [&_li:nth-child(even)]:text-right [&_li]:py-3">
         <li class="font-light">
             <abbr title="Return on investment">RIO</abbr>
@@ -47,7 +47,7 @@
                         <x-mary-button @click="copy=false" type="button" class="btn-outline flex-1">Cancel</x-mary-button>
                 </div>
             </div>
-        </form>        
+        </form>
     @endif
     {{ $slot }}
 </x-mary-card>
