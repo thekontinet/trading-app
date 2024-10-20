@@ -1,8 +1,8 @@
 @props(['trader'])
 
 <x-mary-card class="text-center">
-    <div class="flex items-center">
-        <img class="h-12 w-12 rounded-full" src="https://ui-avatars.com/api/?name={{ $trader->name }}&background=random"/>
+    <div class="flex gap-4 items-center">
+        <img class="h-8 w-8 rounded-full" src="https://ui-avatars.com/api/?name={{ $trader->name }}&background=random"/>
         <h4 class="mt-1 font-bold text-lg">{{ $trader->name }}</h4>
     </div>
     <ul class="text-sm text-left grid grid-cols-2 [&_li:nth-child(even)]:text-right [&_li]:py-3">
