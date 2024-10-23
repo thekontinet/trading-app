@@ -81,7 +81,7 @@
                             <h5 class="uk-margin-remove">Stocks</h5>
                         </div>
                         <p>Access 19,000+ stocks across core and emerging markets on 40+ exchanges worldwide.</p>
-                        <a href="/themes/equity/#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        <a href="#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
                 </div>
                 <div>
@@ -91,7 +91,7 @@
                             <h5 class="uk-margin-remove">Listed Options</h5>
                         </div>
                         <p>Access 1,200+ listed options across equities, indices, interest rates, energy, metals and more.</p>
-                        <a href="/themes/equity/#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        <a href="#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
                 </div>
                 <div>
@@ -101,7 +101,7 @@
                             <h5 class="uk-margin-remove">Futures</h5>
                         </div>
                         <p>Access 300+ futures covering equity indices, energy, metals, agriculture, rates and more.</p>
-                        <a href="/themes/equity/#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        <a href="#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
                 </div>
                 <div>
@@ -111,7 +111,7 @@
                             <h5 class="uk-margin-remove">More products</h5>
                         </div>
                         <p>Explore the full range of cash and leveraged products</p>
-                        <a href="/themes/equity/#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        <a href="#" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">Explore<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                     </div>
                 </div>
             </div>
