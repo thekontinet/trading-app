@@ -61,6 +61,6 @@ class User extends Authenticatable implements Wallet, FilamentUser, MustVerifyEm
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->email === config('mail.from.address');
+        return $this->is_admin === true;
     }
 }
