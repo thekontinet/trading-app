@@ -113,6 +113,7 @@
 <script src="/themes/equity/js/config-particles.js"></script>
 <script src="/themes/equity/js/utilities.min.js"></script>
 <script src="/themes/equity/js/config-theme.js"></script>
+<x-livechat/>
 </body>
 
 </html>
