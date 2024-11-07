@@ -18,7 +18,7 @@ return new class() extends Migration
             $table->string('name');
             $table->string('currency')->nullable();
             $table->string('slug')
-                ->index();
+                ->index('walletable_slug');
             $table->uuid('uuid')
                 ->unique();
             $table->string('description')
