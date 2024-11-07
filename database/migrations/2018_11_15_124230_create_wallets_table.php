@@ -14,11 +14,11 @@ return new class() extends Migration
     {
         Schema::create($this->table(), static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->morphs('holder', 'walletable');
+            $table->morphs('holder');
             $table->string('name');
             $table->string('currency')->nullable();
-            $table->string('slug')
-                ->index('walletable_slug');
+            $table->string('slug', 150)
+                ->index();
             $table->uuid('uuid')
                 ->unique();
             $table->string('description')
