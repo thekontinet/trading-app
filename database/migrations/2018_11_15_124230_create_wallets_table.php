@@ -14,14 +14,15 @@ return new class() extends Migration
     {
         Schema::create($this->table(), static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->morphs('holder'); // Morphs creates `holder_type` and `holder_id` columns
+            $table->string('holder_type', 100);  // Reduce length from 255 to 100
+            $table->unsignedBigInteger('holder_id');
             $table->string('name', 150);
             $table->string('currency', 100)->nullable();
-            $table->string('slug', 150)  // Limiting the length to 150 characters
+            $table->string('slug', 150)  // Reduced length to 150 characters
             ->index();
             $table->uuid('uuid')
                 ->unique();
-            $table->string('description', 191)  // Optional, limiting to 191 characters
+            $table->string('description', 191)  // Optional, limit to 191 characters
             ->nullable();
             $table->json('meta')
                 ->nullable();
@@ -31,7 +32,7 @@ return new class() extends Migration
                 ->default(2);
             $table->timestamps();
 
-            // Reduce the size of columns in unique constraints to avoid hitting the key length limit
+            // Create a unique index on these columns
             $table->unique(['holder_type', 'holder_id', 'slug']);
         });
 
@@ -59,4 +60,3 @@ return new class() extends Migration
         return (new Transaction())->getTable();
     }
 };
-
