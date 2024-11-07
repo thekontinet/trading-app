@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Schema::defaultStringLength(191);
+        Schema::defaultStringLength(1911);
         View::addNamespace('equity', resource_path('themes/equity'));
         Blade::anonymousComponentNamespace(resource_path('themes/equity/components'), 'equity');
     }
