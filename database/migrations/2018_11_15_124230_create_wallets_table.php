@@ -33,7 +33,7 @@ return new class() extends Migration
             $table->timestamps();
 
             // Create a unique index on these columns
-            $table->unique(['holder_type', 'holder_id', 'slug']);
+//            $table->unique(['holder_type', 'holder_id', 'slug']);
         });
 
         Schema::table($this->transactionTable(), function (Blueprint $table) {
