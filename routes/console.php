@@ -16,4 +16,4 @@ Artisan::command('trade:add-profit', function(\App\Services\TradeService $tradeS
 
     $this->info("profit added successfully");
     $this->info("Users Affected: {$users->count()}");
-});
+})->daily();
