@@ -14,7 +14,7 @@ return new class() extends Migration
     {
         Schema::create($this->table(), static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->morphs('holder');
+            $table->morphs('holder', 'walletable');
             $table->string('name');
             $table->string('currency')->nullable();
             $table->string('slug')
