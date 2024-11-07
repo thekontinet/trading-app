@@ -56,7 +56,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
             'strict' => true,
-            env('DB_ENGINE', 'InnoDB'),
+            env('DB_ENGINE', 'InnoDB ROW_FORMAT=DYNAMIC'),
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
