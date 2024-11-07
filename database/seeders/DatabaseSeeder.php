@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'email' => config('mail.from.address'),
             'is_admin' => true,
         ])->save();
-        
+
         // Add all supported crypto wallet
         foreach(config('money.currencies') as $code => $currency){
             if(($currency['type'] ?? null) !== 'crypto'){
@@ -62,10 +62,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        Trader::factory(8)->create();
-        
+        Trader::factory(4)->create();
 
-        // clear existing asset chache data
+
+        // clear existing asset cache data
         Cache::clear();
     }
 }

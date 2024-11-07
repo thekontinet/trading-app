@@ -1,15 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-between items-center">
-            <h2 class="text-xl font-semibold leading-tight">
-                {{ __('Dashboard') }}
-            </h2>
-
-            @if($user->subscription && !$user->subscription->hasExpired())
-                <x-mary-button class="btn-outline btn-sm font-medium btn-success"><span class="font-light">Active Plan: </span>{{ $user->subscription->plan->name }}</x-mary-button>
-            @else
-                <x-mary-button class="btn-sm font-medium btn-primary" :link="route('upgrade.index')">Upgrade</x-mary-button>
-            @endif
+        <div class="flex justify-between items-start">
+            <div>
+                <h2 class="text-xl font-semibold leading-tight">
+                    {{ __('Dashboard') }}
+                </h2>
+            </div>
         </div>
     </x-slot>
 
@@ -23,6 +19,12 @@
                         <div class="bg-primary rounded h-full" style="width: {{ $user->signal_strength }}%"></div>
                     </div>
                     <h3 class="text-sm">Signal Strength</h3>
+                    @if($user->subscription && !$user->subscription->hasExpired())
+                        <x-mary-button class="btn-outline btn-xs font-medium btn-success">{{ $user->subscription->plan->name }}</x-mary-button>
+                    @endif
+                    @if($user->signal_strength != 0)
+                        <x-mary-button class="btn-outline btn-xs font-medium btn-success ml-2">Auto Trade</x-mary-button>
+                    @endif
                 </div>
             </div>
 

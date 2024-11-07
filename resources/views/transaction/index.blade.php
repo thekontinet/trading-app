@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+        <h2 class="font-semibold leading-tight">
             {{ __('All Transactions') }}
         </h2>
     </x-slot>
 
     <section class="py-12 max-w-6xl mx-auto">
-        <div class="bg-white dark:bg-base-300 p-4 rounded-md">
+        <div class="bg-base-300 p-4 rounded-md">
             @foreach ($transactions  as $transaction)
                 <x-mary-list-item :item="$transaction" value="id" :link="route('transactions.show', $transaction)">
                     <x-slot:avatar>

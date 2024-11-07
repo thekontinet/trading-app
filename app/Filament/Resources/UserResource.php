@@ -14,7 +14,9 @@ use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
@@ -60,10 +62,10 @@ class UserResource extends Resource
 
     public static function table(Table $table): Table
     {
-        $currencies = config('money.supported_currencies');
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->description(fn(User $record): string => 'Plan: ' . $record->subscription?->plan?->name)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
