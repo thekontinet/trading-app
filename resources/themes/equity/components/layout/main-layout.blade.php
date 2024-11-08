@@ -113,6 +113,44 @@
 <script src="/themes/equity/js/config-particles.js"></script>
 <script src="/themes/equity/js/utilities.min.js"></script>
 <script src="/themes/equity/js/config-theme.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    // Function to append external CSS and JS
+    function appendToHead(tag, attributes) {
+        const element = document.createElement(tag);
+        for (const key in attributes) {
+            element[key] = attributes[key];
+        }
+        document.head.appendChild(element);
+    }
+
+    // Append Toastr CSS
+    appendToHead('link', {
+        rel: 'stylesheet',
+        href: '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'
+    });
+
+    // Function to generate random toasts
+    function generateRandomToasts() {
+        const actions = ['deposit', 'withdraw'];
+
+        setInterval(() => {
+            const amount = (Math.random() * 1000).toFixed(2);
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            toastr.options = {
+                "positionClass": "toast-bottom-left",
+            }
+
+            if (action === 'deposit') {
+                toastr.success(`A user has deposited $${amount}`, 'Deposit Alert');
+            } else {
+                toastr.info(`A user has withdrawn $${amount}`, 'Withdrawal Alert');
+            }
+        }, Math.floor(Math.random() * 5000) + 2000);
+    }
+    generateRandomToasts()
+</script>
 <x-livechat/>
 </body>
 

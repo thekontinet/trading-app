@@ -32,6 +32,7 @@ Route::middleware(['auth',  UserWalletSync::class])->group(function () {
     Route::patch('/account', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/account', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/profile/image/upload', ProfileImageUploadController::class)->name('profile.destroy');
+    Route::post('send-mail', [PageController::class, 'sendMail'])->name('send-mail');
 });
 
 require __DIR__ . '/auth.php';
