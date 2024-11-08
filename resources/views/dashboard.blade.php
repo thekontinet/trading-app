@@ -28,12 +28,18 @@
                 </div>
             </div>
 
-            <div class="py-2 grid gap-4 grid-cols-3">
+            <div class="py-2 grid gap-4 grid-cols-3 lg:grid-cols-4">
                 <x-mary-button
                     class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row"
                     icon='o-credit-card'
                     :link="route('deposits.create')"
                 >Deposit</x-mary-button>
+
+                <x-mary-button
+                    class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row hidden lg:flex"
+                    icon='o-wallet'
+                    :link="route('withdraws.create')"
+                >Withdraw</x-mary-button>
 
                 <x-mary-button
                     class="btn-outline btn-block btn-square btn-primary flex-col lg:flex-row"
