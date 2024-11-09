@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
+        <h2 class="text-xl font-semibold leading-tight">
             {{ __('Transaction Summary') }}
         </h2>
     </x-slot>
@@ -51,13 +51,24 @@
                     <p class="text-sm font-semibold text-center py-4">Scan or copy wallet address to make payment</p>
                 </div>
 
-                <form class="mt-8">
-                    <x-mary-input :value="$asset->address" readonly>
+                <form class="mt-8"
+                      x-data="{copied: false}"
+                      x-init="
+                        const clipboard = new ClipboardJS($refs.btn, {text: () => $refs.input.value})
+                        clipboard.on('success', () => {
+                            copied = true
+                            setTimeout(() => copied = false, 500)
+                        })
+                    "
+                >
+                    <x-mary-input x-ref="input" :value="$asset->address" data-copable="wallet-address-readonly-input" readonly>
                         <x-slot:append>
-                            <x-mary-button 
+                            <x-mary-button
+                                x-ref="btn"
                                 class="btn-outline btn-primary border-dashed border-s-0 rounded-s-none"
                             >
-                                <x-mary-icon name="o-clipboard"/>
+                                <x-mary-icon x-cloak x-show="!copied" name="o-clipboard"/>
+                                <x-mary-icon x-cloak x-show="copied" name="o-check-circle"/>
                             </x-mary-button>
                         </x-slot:append>
                     </x-mary-input>

@@ -41,5 +41,6 @@
         @vite(['resources/js/app.js'])
         <x-livechat/>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/robsontenorio/mary@0.44.2/libs/currency/currency.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
     </body>
 </html>

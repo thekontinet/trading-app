@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\UserResource\Actions\ManageWallet;
+use App\Filament\Resources\UserResource\Actions\SendMessage;
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Filament\Resources\UserResource\RelationManagers\InvestmentsRelationManager;
@@ -87,40 +89,8 @@ class UserResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
-                    Tables\Actions\Action::make('Fund Wallet')
-                        ->icon('heroicon-o-wallet')
-                        ->form([
-                            Forms\Components\Select::make('wallet')
-                                ->live()
-                                ->options(fn($record) => $record->wallets->pluck('title', 'id'))
-                                ->exists('wallets', 'id')
-                                ->required(),
-
-                            Forms\Components\Select::make('type')
-                                ->options([
-                                    'deposit' => 'Deposit',
-                                    'withdraw' => 'Withdraw',
-                                ])
-                                ->in(['deposit', 'withdraw'])
-                                ->required(),
-
-                                Forms\Components\TextInput::make('amount')
-                                    ->numeric()
-                                    ->prefix(function($get){
-                                        $wallet = Wallet::query()->find($get('wallet'));
-                                        return $wallet ? config("money.currencies.{$wallet->currency}.symbol") : '$';
-                                    })
-                                    ->minValue(0)
-                                    ->required()
-                        ])->action(function($data, WalletService $walletService){
-                            $wallet = Wallet::query()->find($data['wallet']);
-                            $transaction = $walletService->{$data['type']}($wallet, $data['amount']);
-                            Notification::make()
-                                ->title('Wallet has been updated')
-                                ->body("{$transaction->type} transaction has been perform on {$wallet->name} wallet")
-                                ->success()
-                                ->send();
-                        }),
+                    ManageWallet::make(),
+                    SendMessage::make()
                 ])->button(),
             ])
             ->bulkActions([

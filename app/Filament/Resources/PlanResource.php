@@ -19,6 +19,8 @@ class PlanResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
 
+    protected static ?string $navigationGroup = 'Financial';
+
     public static function form(Form $form): Form
     {
         return $form

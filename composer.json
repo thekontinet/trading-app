@@ -8,6 +8,7 @@
         "php": "^8.2",
         "akaunting/laravel-money": "^5.2",
         "bavix/laravel-wallet": "^11.2",
+        "calebporzio/sushi": "^2.5",
         "filament/filament": "^3.2",
         "laravel/breeze": "^2.1",
         "laravel/framework": "^11.9",

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Category;
 use App\Models\Page;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Mail;
@@ -21,6 +22,12 @@ class PageController extends Controller
             'title' => $page?->title,
             'page' => $page,
             'appName' => env('APP_NAME'),
+            ...match (true){
+                $request->is('/') => [
+                    'testimonies' => $this->getTestimonies(),
+                ],
+                default => []
+            }
         ];
 
         $view = match(true){
@@ -46,6 +53,11 @@ class PageController extends Controller
                 'title' => $page->title,
                 'href' => route('pages', $page),
             ])->toArray();
+    }
+
+    public function getTestimonies()
+    {
+        return Testimony::all();
     }
 
     public function sendMail(Request $request)
