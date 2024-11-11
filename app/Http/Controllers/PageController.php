@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\Category;
 use App\Models\Page;
+use App\Models\Plan;
 use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -25,6 +26,7 @@ class PageController extends Controller
             ...match (true){
                 $request->is('/') => [
                     'testimonies' => $this->getTestimonies(),
+                    'plans' => Plan::query()->get()
                 ],
                 default => []
             }

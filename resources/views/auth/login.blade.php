@@ -32,7 +32,7 @@
 
         <!-- Remember Me -->
         <div class="flex items-center justify-between mt-4 dark:text-slate-500">
-            <x-mary-checkbox name='remember' :label="__('Remember me')"/>
+            <x-mary-checkbox class="checkbox bg-base-200" name='remember' :label="__('Remember me')"/>
 
             @if (Route::has('password.request'))
                 <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
@@ -48,7 +48,7 @@
         </div>
     </form>
     <div class="my-4 text-center">
-        <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
+        <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-base-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">
             {{ __('Create a new account') }}
         </a>
     </div>

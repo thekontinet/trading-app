@@ -89,7 +89,7 @@
         </div>
 
         <div class="col-span-full">
-            <x-mary-checkbox name='agree' wire:model="agree">
+            <x-mary-checkbox name='agree' wire:model="agree" class="bg-base-300">
                 <x-slot name="label">
                     <a href="{{ route('pages', 'terms-of-service') }}">Agree to our terms of service</a>
                 </x-slot>

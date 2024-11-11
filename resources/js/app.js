@@ -5,11 +5,11 @@ import 'aos/dist/aos.css'
 
 import Alpine from 'alpinejs';
 import persist from '@alpinejs/persist'
- 
+
 Alpine.plugin(persist)
 document.addEventListener('alpine:init', () => {
     Alpine.store('darkMode', {
-        on: Alpine.$persist(false).as('darkmode'),
+        on: Alpine.$persist(true).as('darkmode'),
         toggle() {
             this.on = !this.on
         }
