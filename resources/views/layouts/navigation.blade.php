@@ -28,7 +28,7 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     @include('layouts.left-drawer')
-                    <x-application-logo />
+                    <x-application-logo :full="false" />
                 </div>
 
                 <!-- Navigation Links -->
