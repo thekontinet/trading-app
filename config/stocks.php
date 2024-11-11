@@ -19,5 +19,6 @@ return [
     "MA" => "Mastercard Incorporated",
     "HD" => "Home Depot, Inc.",
     "CVX" => "Chevron Corporation",
-    "ABBV" => "AbbVie Inc."
+    "ABBV" => "AbbVie Inc.",
+    "USAU" => "US Gold Corp.",
 ];
