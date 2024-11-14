@@ -198,7 +198,7 @@
                             <div class="uk-flex uk-flex-middle">
                                 <div class="uk-margin-right">
                                     <div class="uk-background-primary uk-border-pill">
-                                        <img class="uk-align-center uk-border-pill" src="/themes/equity/img/in-lazy.gif" data-src="{{$testimony['image']}}" alt="client-1" width="100" height="100" data-uk-img>
+                                        <img class="uk-align-center uk-border-pill" src="/themes/equity/img/in-lazy.gif" data-src="/storage/{{$testimony['image']}}" alt="client-1" width="100" height="100" data-uk-img>
                                     </div>
                                 </div>
                                 <div>
