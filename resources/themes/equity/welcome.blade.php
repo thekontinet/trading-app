@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="in-slide-img uk-visible@m">
-                                <img src="/themes/equity/img/in-lazy.gif" data-src="/themes/equity/img/in-equity-slide-1.png" alt="image-slide" width="652" height="746" data-uk-img>
+                                <img class="uk-hidden@s uk-visible@l" src="/themes/equity/img/in-lazy.gif" data-src="/themes/equity/img/in-equity-slide-1.png" alt="image-slide" width="652" height="746" data-uk-img>
                             </div>
                         </div>
                     </div>

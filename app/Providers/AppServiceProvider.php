@@ -25,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $theme = env('APP_THEME');
-        View::addNamespace($theme, resource_path("themes/$theme"));
-        Blade::anonymousComponentNamespace(resource_path("themes/$theme/components"), $theme);
+        if($theme){
+            View::addNamespace($theme, resource_path("themes/$theme"));
+            Blade::anonymousComponentNamespace(resource_path("themes/$theme/components"), $theme);
+        }
     }
 }
